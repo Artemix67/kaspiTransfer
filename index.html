@@ -40,15 +40,29 @@
         }
 
         .icon-wrapper {
-            width: 76px;
-            height: 76px;
+            width: 96px;
+            height: 96px;
             margin: 0 auto 28px;
-            border-radius: 22px;
-            background: #fff0ef;
+
+            background-color: #FFF0EF;
+            border-radius: 28px;
+
             display: flex;
-            justify-content: center;
             align-items: center;
-            font-size: 38px;
+            justify-content: center;
+
+            overflow: hidden;
+            box-sizing: border-box;
+            flex-shrink: 0;
+        }
+
+        .wallet-icon {
+            width: 42px;
+            height: 42px;
+
+            object-fit: contain;
+            display: block;
+            flex-shrink: 0;
         }
 
         .title-kz {
@@ -310,9 +324,14 @@
 <body>
     <main class="container">
 
-        <div class="icon-wrapper" aria-hidden="true">
-            💳
-        </div>
+    <div class="icon-wrapper" aria-hidden="true">
+        <img
+            src="./wallet.png"
+            alt=""
+            class="wallet-icon"
+            onerror="this.style.display='none'; console.error('Не найдена картинка wallet.png')"
+        />
+    </div>
 
         <h1 class="title-kz">
             Kaspi арқылы төлеу
@@ -351,8 +370,17 @@
             <span class="copy-btn-ru">Скопировать номер</span>
         </button>
 
+        <button class="kaspi-btn" id="openKaspiButton" type="button">
+            <span class="kaspi-btn-kz">
+                Kaspi.kz қосымшасын ашу
+            </span>
+            <span class="kaspi-btn-ru">
+                Открыть приложение Kaspi.kz
+            </span>
+        </button>
+
         <div class="success-message" id="successMessage"
-             role="status" aria-live="polite">
+            role="status" aria-live="polite">
             <div class="success-kz">
                 ✓ Нөмір көшірілді!
             </div>
@@ -425,15 +453,6 @@
             </div>
 
         </section>
-
-        <button class="kaspi-btn" id="openKaspiButton" type="button">
-            <span class="kaspi-btn-kz">
-                Kaspi.kz қосымшасын ашу
-            </span>
-            <span class="kaspi-btn-ru">
-                Открыть приложение Kaspi.kz
-            </span>
-        </button>
 
         <footer class="footer">
             <p>
